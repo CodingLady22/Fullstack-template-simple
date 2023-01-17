@@ -4,6 +4,7 @@ const app = express()
 const PORT = 4500
 const mongoose = require("mongoose")
 const homeRoutes = require('./routes/home')
+const editRoutes = require('./routes/edit')
 // const homeRoutes = require('./routes/home')
 
 
@@ -24,7 +25,9 @@ app.use(express.urlencoded({ extended: true }))
 
 
 //todo - Set Routes
+app.use('/edit', editRoutes)
 app.use('/', homeRoutes)
+
 
 
 //todo - Start Server
