@@ -20,7 +20,7 @@
                                 <input type= "text" name= "textInput" value="<%= item.textInput %>">
                                 <label for="numInput">Input Number</label>
                                 <input type = "number" name = "numInput" value = "<%= item.numInput %>">
-                                <button type= "submit">Confirm Edit</button>
+                                <button type= "submit">Edit</button>
                                 <a href="/">Cancel</a>
                             </form>
                         </li>
@@ -32,8 +32,8 @@
                             <div>
                                 <%= item.numInput %>
                             </div>
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
+                            <a href="/edit/<%= item._id%>">Edit</a>
+                            <a href="/edit/delete<%= item._id%>">Delete</a>
                         </li>
                     <% } %>
                 <% }) %>
