@@ -12,27 +12,29 @@ module.exports = {
         }
     },
       deleteItem: async (req, res) => {
-        // try {
-        //     const items = await ItemList.find()
-        //     res.render('index.ejs', {itemList: items})
-        // } catch (err) {
-        //     if (err) return res.status(500).send(err)
-        // }
+        const id = req.params.id
+        try {
+            const result = await ItemList.findByIdAndDelete(id)
+            console.log(result)
+            res.redirect('/')
+        } catch (err) {
+            if (err) return res.status(500).send(err)
+        }
     },
     updateItem: async (req, res) => {
-        // const newItem = new ItemList(
-        //     {
-        //         textInput: req.body.textInput,
-        //         numInput: req.body.numInput,
-        //     }
-        // )
-        // try {
-        //     await newItem.save()
-        //     console.log(newItem)
-        //     res.redirect('/')
-        // } catch (err) {
-        //     if (err) return res.status(500).send(err)
-        //     res.redirect('/')
-        // }
+        const id = req.params.id
+        try {
+            await ItemList.findByIdAndUpdate(
+                id,
+                {
+                textInput: req.body.textInput,
+                numInput: req.body.numInput
+                },
+            )
+            res.redirect('/')
+        } catch (err) {
+            if (err) return res.status(500).send(err)
+            res.redirect('/')
+        }
     }
 }
