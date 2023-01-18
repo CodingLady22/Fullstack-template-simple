@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/styles.css">
     <title>Edit Page</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                 <% itemList.forEach(item=> { %>
                     <% if (item._id == itemId ) { %> 
                         <li>
-                            <form action="/edit/update<%= item._id%>" method="POST">
+                            <form action="/edit/update/<%= item._id%>" method="POST">
                                 <label for= "textInput">Input Text</label>
                                 <input type= "text" name= "textInput" value="<%= item.textInput %>">
                                 <label for="numInput">Input Number</label>
@@ -33,7 +33,7 @@
                                 <%= item.numInput %>
                             </div>
                             <a href="/edit/<%= item._id%>">Edit</a>
-                            <a href="/edit/delete<%= item._id%>">Delete</a>
+                            <a href="/edit/delete/<%= item._id%>">Delete</a>
                         </li>
                     <% } %>
                 <% }) %>
