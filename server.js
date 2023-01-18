@@ -20,7 +20,7 @@ connectDB() // We call the the fxn we just imported from the config
 
 //todo - Set Middleware
 app.set("view engine", "ejs") // setting our view engine to ejs
-app.set(express.static("public")) //telling express to look in public folder for static files
+app.use(express.static("public")) //telling express to look in public folder for static files
 app.use(express.urlencoded({ extended: true }))
 
 
